@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
-  final String text;
+class LoginOptions extends StatelessWidget {
+  final String iconName;
   final void Function()? onTap;
-  const MyButton({super.key, required this.text, required this.onTap});
+
+  const LoginOptions({super.key, required this.iconName, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +16,11 @@ class MyButton extends StatelessWidget {
           border: Border.all(
             color: Theme.of(context).colorScheme.inversePrimary,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(15),
         ),
-        padding: EdgeInsets.all(25),
-        margin: EdgeInsets.symmetric(horizontal: 25),
-        child: Center(child: Text(text)),
+        height: 60,
+        padding: EdgeInsets.all(8),
+        child: Image(image: AssetImage(iconName)),
       ),
     );
   }

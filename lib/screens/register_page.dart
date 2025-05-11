@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:messaging_app/components/logo.dart';
 import 'package:messaging_app/services/auth/auth_services.dart';
 import 'package:messaging_app/components/my_button.dart';
 import 'package:messaging_app/components/my_textfield.dart';
@@ -44,11 +45,7 @@ class RegisterPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // logo
-          Icon(
-            Icons.message,
-            size: 60,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          Logo(imageName: "assets/logo/logo.png"),
 
           SizedBox(height: 50),
 
@@ -65,6 +62,7 @@ class RegisterPage extends StatelessWidget {
 
           // email textfield
           MyTextfield(
+            icon: Icon(Icons.email_outlined),
             hindText: "Email",
             obscureText: false,
             controller: _emailController,
@@ -74,6 +72,7 @@ class RegisterPage extends StatelessWidget {
 
           // password textfield
           MyTextfield(
+            icon: Icon(Icons.fingerprint),
             hindText: "Password",
             obscureText: true,
             controller: _pwController,
@@ -83,6 +82,7 @@ class RegisterPage extends StatelessWidget {
 
           // confirm password textfield
           MyTextfield(
+            icon: Icon(Icons.lock_outline),
             hindText: "Confirm Password",
             obscureText: true,
             controller: _confirmPwController,
@@ -107,10 +107,7 @@ class RegisterPage extends StatelessWidget {
                 onTap: onTap,
                 child: Text(
                   "Login now",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
             ],

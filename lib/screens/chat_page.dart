@@ -35,7 +35,10 @@ class ChatPage extends StatelessWidget {
           Expanded(child: _buildMessageList()),
 
           // user input
-          _buildUserInput(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            child: _buildUserInput(),
+          ),
         ],
       ),
     );

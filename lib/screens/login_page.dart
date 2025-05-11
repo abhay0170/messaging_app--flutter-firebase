@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:messaging_app/components/login_options.dart';
+import 'package:messaging_app/components/logo.dart';
+import 'package:messaging_app/screens/under_maintanence.dart';
 import 'package:messaging_app/services/auth/auth_services.dart';
 import 'package:messaging_app/components/my_button.dart';
 import 'package:messaging_app/components/my_textfield.dart';
@@ -21,10 +24,11 @@ class LoginPage extends StatelessWidget {
         _pwController.text,
       );
     } catch (e) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(title: Text(e.toString())),
+      final snackBar = SnackBar(
+        content: Text(e.toString()),
+        duration: Duration(seconds: 1),
       );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 
@@ -36,11 +40,7 @@ class LoginPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // logo
-          Icon(
-            Icons.message,
-            size: 60,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          Logo(imageName: "assets/logo/logo.png"),
 
           SizedBox(height: 50),
 
@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
             "Welcome Back, You have been missed!",
             style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
-              fontSize: 16,
+              fontSize: 17,
             ),
           ),
 
@@ -57,6 +57,7 @@ class LoginPage extends StatelessWidget {
 
           // email textfield
           MyTextfield(
+            icon: Icon(Icons.mail_outline),
             hindText: "Email",
             obscureText: false,
             controller: _emailController,
@@ -66,6 +67,7 @@ class LoginPage extends StatelessWidget {
 
           // password textfield
           MyTextfield(
+            icon: Icon(Icons.fingerprint),
             hindText: "Password",
             obscureText: true,
             controller: _pwController,
@@ -83,18 +85,60 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "not a member ?",
+                "not a member ?  ",
                 style: TextStyle(color: Theme.of(context).colorScheme.primary),
               ),
               GestureDetector(
                 onTap: onTap,
                 child: Text(
-                  "register now",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  "REGISTER NOW",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
+              ),
+            ],
+          ),
+          SizedBox(height: 15),
+          Row(
+            children: [
+              Expanded(child: Divider()),
+              Text(" OR "),
+              Expanded(child: Divider()),
+            ],
+          ),
+          SizedBox(height: 15),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              LoginOptions(
+                iconName: "assets/icons/twitter.png",
+                onTap:
+                    () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UnderMaintenance(),
+                      ),
+                    ),
+              ),
+              LoginOptions(
+                iconName: "assets/icons/google.png",
+                onTap:
+                    () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UnderMaintenance(),
+                      ),
+                    ),
+              ),
+              LoginOptions(
+                iconName: "assets/icons/apple-logo.png",
+                onTap:
+                    () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UnderMaintenance(),
+                      ),
+                    ),
               ),
             ],
           ),
