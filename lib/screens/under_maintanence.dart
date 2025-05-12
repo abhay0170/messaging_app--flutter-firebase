@@ -15,11 +15,12 @@ class UnderMaintenance extends StatelessWidget {
               height: 150,
               child: Image(image: AssetImage("assets/images/maintenance.png")),
             ),
+            SizedBox(height: 10),
             Text(
-              "Feature Coming Soon!",
+              "Feature Coming Soon !",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 5),
             Text(
               "We're working on this feature. Stay tuned!",
               textAlign: TextAlign.center,

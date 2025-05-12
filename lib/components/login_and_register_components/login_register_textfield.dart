@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MyTextfield extends StatelessWidget {
+class LoginRegisterTextfield extends StatelessWidget {
   final String hindText;
   final bool obscureText;
   final Icon? icon;
   final TextEditingController controller;
 
-  const MyTextfield({
+  const LoginRegisterTextfield({
     super.key,
     required this.hindText,
     required this.obscureText,
@@ -17,7 +17,7 @@ class MyTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
         controller: controller,
         obscureText: obscureText,

@@ -19,12 +19,12 @@ class Logo extends StatelessWidget {
                 Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
                 BlendMode.srcATop,
               ),
-              child: Image.asset(imageName, height: 90),
+              child: Image.asset(imageName, height: 80),
             ),
           ),
         ),
         // Actual image
-        Image.asset(imageName, height: 90),
+        Image.asset(imageName, height: 80),
       ],
     );
   }

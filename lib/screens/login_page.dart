@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:messaging_app/components/login_options.dart';
+import 'package:messaging_app/components/login_and_register_components/login_options.dart';
 import 'package:messaging_app/components/logo.dart';
 import 'package:messaging_app/screens/under_maintanence.dart';
 import 'package:messaging_app/services/auth/auth_services.dart';
-import 'package:messaging_app/components/my_button.dart';
-import 'package:messaging_app/components/my_textfield.dart';
+import 'package:messaging_app/components/login_and_register_components/login_or_register_button.dart';
+import 'package:messaging_app/components/login_and_register_components/login_register_textfield.dart';
 
 class LoginPage extends StatelessWidget {
   // email and password controller
@@ -42,21 +42,21 @@ class LoginPage extends StatelessWidget {
           // logo
           Logo(imageName: "assets/logo/logo.png"),
 
-          SizedBox(height: 50),
+          SizedBox(height: 30),
 
           // Welcome Back message
           Text(
             "Welcome Back, You have been missed!",
             style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
-              fontSize: 17,
+              fontSize: 15,
             ),
           ),
 
-          SizedBox(height: 25),
+          SizedBox(height: 20),
 
           // email textfield
-          MyTextfield(
+          LoginRegisterTextfield(
             icon: Icon(Icons.mail_outline),
             hindText: "Email",
             obscureText: false,
@@ -66,19 +66,19 @@ class LoginPage extends StatelessWidget {
           SizedBox(height: 10),
 
           // password textfield
-          MyTextfield(
+          LoginRegisterTextfield(
             icon: Icon(Icons.fingerprint),
             hindText: "Password",
             obscureText: true,
             controller: _pwController,
           ),
 
-          SizedBox(height: 25),
+          SizedBox(height: 20),
 
           // login button
-          MyButton(text: "Login", onTap: () => login(context)),
+          LoginOrRegisterButton(text: "Login", onTap: () => login(context)),
 
-          SizedBox(height: 25),
+          SizedBox(height: 20),
 
           // register now
           Row(
@@ -92,20 +92,20 @@ class LoginPage extends StatelessWidget {
                 onTap: onTap,
                 child: Text(
                   "REGISTER NOW",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 10),
           Row(
             children: [
-              Expanded(child: Divider()),
+              Expanded(child: Divider(indent: 15)),
               Text(" OR "),
-              Expanded(child: Divider()),
+              Expanded(child: Divider(endIndent: 15)),
             ],
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 10),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:messaging_app/components/my_drawer.dart';
-import 'package:messaging_app/components/user_tile.dart';
+import 'package:messaging_app/components/home_components/my_drawer.dart';
+import 'package:messaging_app/components/home_components/user_tile.dart';
 import 'package:messaging_app/screens/chat_page.dart';
 import 'package:messaging_app/services/auth/auth_services.dart';
 import 'package:messaging_app/services/chat/chat_service.dart';

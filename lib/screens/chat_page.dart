@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:messaging_app/components/chat_bubbles.dart';
-import 'package:messaging_app/components/my_textfield.dart';
+import 'package:messaging_app/components/chat_components/chat_bubbles.dart';
+import 'package:messaging_app/components/chat_components/chat_textfield.dart';
+import 'package:messaging_app/components/login_and_register_components/login_register_textfield.dart';
 import 'package:messaging_app/services/auth/auth_services.dart';
 import 'package:messaging_app/services/chat/chat_service.dart';
 
@@ -79,7 +80,11 @@ class ChatPage extends StatelessWidget {
         crossAxisAlignment:
             isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          ChatBubbles(message: data['message'], isCurrentUser: isCurrentUser),
+          ChatBubbles(
+            message: data['message'],
+            time: data["timestamp"],
+            isCurrentUser: isCurrentUser,
+          ),
         ],
       ),
     );
@@ -89,9 +94,8 @@ class ChatPage extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: MyTextfield(
+          child: ChatTextfield(
             hindText: "Type here...",
-            obscureText: false,
             controller: _messageController,
           ),
         ),

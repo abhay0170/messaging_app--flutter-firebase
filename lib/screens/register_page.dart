@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:messaging_app/components/logo.dart';
 import 'package:messaging_app/services/auth/auth_services.dart';
-import 'package:messaging_app/components/my_button.dart';
-import 'package:messaging_app/components/my_textfield.dart';
+import 'package:messaging_app/components/login_and_register_components/login_or_register_button.dart';
+import 'package:messaging_app/components/login_and_register_components/login_register_textfield.dart';
 
 class RegisterPage extends StatelessWidget {
   // email and password controller
@@ -47,7 +47,7 @@ class RegisterPage extends StatelessWidget {
           // logo
           Logo(imageName: "assets/logo/logo.png"),
 
-          SizedBox(height: 50),
+          SizedBox(height: 30),
 
           // Welcome Back message
           Text(
@@ -58,10 +58,10 @@ class RegisterPage extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 25),
+          SizedBox(height: 20),
 
           // email textfield
-          MyTextfield(
+          LoginRegisterTextfield(
             icon: Icon(Icons.email_outlined),
             hindText: "Email",
             obscureText: false,
@@ -71,7 +71,7 @@ class RegisterPage extends StatelessWidget {
           SizedBox(height: 10),
 
           // password textfield
-          MyTextfield(
+          LoginRegisterTextfield(
             icon: Icon(Icons.fingerprint),
             hindText: "Password",
             obscureText: true,
@@ -81,19 +81,22 @@ class RegisterPage extends StatelessWidget {
           SizedBox(height: 10),
 
           // confirm password textfield
-          MyTextfield(
+          LoginRegisterTextfield(
             icon: Icon(Icons.lock_outline),
             hindText: "Confirm Password",
             obscureText: true,
             controller: _confirmPwController,
           ),
 
-          SizedBox(height: 25),
+          SizedBox(height: 20),
 
           // login button
-          MyButton(text: "Register", onTap: () => register(context)),
+          LoginOrRegisterButton(
+            text: "Register",
+            onTap: () => register(context),
+          ),
 
-          SizedBox(height: 25),
+          SizedBox(height: 20),
 
           // register now
           Row(
@@ -107,7 +110,7 @@ class RegisterPage extends StatelessWidget {
                 onTap: onTap,
                 child: Text(
                   "Login now",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
